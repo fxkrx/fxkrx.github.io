@@ -66,7 +66,6 @@ margin: 15px;
     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     background-color: white;
     margin: 0;
-
 }
 
 .container img{
@@ -83,8 +82,9 @@ margin: 15px;
 }
 h2 {
     font-size: 2em;
-    margin: 0 20px 10px;
+    margin: 0 0 10px;
     color: #000;
+    margin-bottom: 50px;
 }
 
 .homebtn{
@@ -314,17 +314,8 @@ section{
         top: 0;
     }
 
-    h4{
-        width: 80%;
-        text-align: center;
-    }
-
     .container .small{
         width: 70%;
-    }
-
-    .game-container{
-        width: 100%;
     }
 
     .elephant{
@@ -424,11 +415,6 @@ section{
 
     .container .small{
         width: 70%;
-    }
-
-    h4{
-        width: 80%;
-        text-align: center;
     }
 
     .elephant{
