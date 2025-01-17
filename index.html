@@ -207,14 +207,23 @@
                 }
             }, 30);
         }
-
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft' && player.x > 0) {
-                player.x -= 10;
-            } else if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) {
-                player.x += 10;
-            }
+                     // Touch and mouse controls for moving the bowl
+                canvas.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            player.x = touch.clientX - canvas.offsetLeft - player.width / 2;
         });
+
+        canvas.addEventListener('mousemove', (e) => {
+            player.x = e.clientX - canvas.offsetLeft - player.width / 2;
+        });
+
+        // window.addEventListener('keydown', function(e) {
+        //     if (e.key === 'ArrowLeft' && player.x > 0) {
+        //         player.x -= 10;
+        //     } else if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) {
+        //         player.x += 10;
+        //     }
+        // });
 
         function openNav() {
         document.getElementById("links").style.width = "250px";
