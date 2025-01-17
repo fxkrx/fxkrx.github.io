@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Style+Script&family=Tsukimi+Rounded&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,11 +69,26 @@
         <a href="https://birdsofparadise.sg/" class="homebtn">Back to Home</a>
         <img src="melt.png" alt="" width="100%">
         <div class="game-container">
-            <p class="elephant">While you're here, <br> Help catch the ice creams into the bowl! <br> Use the left and right arrow keys to move.</p>
+            <p class="elephant" data-aos="fade-up">While you're here, <br> Help catch the ice creams into the bowl! <br> Use the left and right arrow keys to move.</p>
             <p class="mouse">While you're here, <br> Help catch the ice creams into the bowl! <br> Swipe the bowl left and right to move.</p>
             <canvas id="gameCanvas" width="300" height="400"></canvas>
             <button onclick="startGame()">Start Game</button>
-            <img src="2.png" alt="" width="100%">
+            <!-- <img src="scoops/2.png" alt="" width="100%"> -->
+        </div>
+
+        <h4 data-aos="fade-up">About Us</h4>
+        <hr style="height:2px; border:0; width: 50px;color:gray;background-color:gray">
+
+        <div class="about-us" data-aos="fade-up">
+            <img src="birds-of-paradise.jpg" alt="our ice-cream in front of an outlet" width="600px">
+            <div class="content">
+                <p>
+                    Established in 2016, Birds of Paradise introduced the world's first botanical gelato boutique, creating high-quality gelato that celebrates the botanicals of South East Asia. Our aspiration is to share the exotic and exquisite flavours of our region with the world, starting with our iconic creations of White Chrysanthemum gelato and Lychee Raspberry gelato.
+                </p>
+                <p>
+                    We mindfully select each ingredient to ensure it embodies our dedication to authenticity and balance. We infuse real botanicals into our gelato - eschewing time-saving bottled flavourings, essences and colourings - to extract authentic flavours and aromas into exquisite experiences.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -207,8 +223,13 @@
                     spawnCone();
                 }
             }, 30);
+
+            
         }
-                     // Touch and mouse controls for moving the bowl
+
+        
+
+                // Touch and mouse controls for moving the bowl
                 canvas.addEventListener('touchmove', (e) => {
             const touch = e.touches[0];
             player.x = touch.clientX - canvas.offsetLeft - player.width / 2;
@@ -236,5 +257,8 @@
         document.getElementById("menu").style.marginLeft= "0";
         }
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    
 </body>
 </html>
