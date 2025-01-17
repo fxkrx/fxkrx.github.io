@@ -1,0 +1,428 @@
+body {
+    margin: 0;
+    font-family: "Tsukimi Rounded", serif;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    color: #333;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.menu{
+    display: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #fff4f1;
+
+}
+
+nav ul{
+    display: flex;
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li{
+    list-style-type: none;
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+    color: #ff5733;
+}
+
+.icons{
+    display: flex;
+   flex: 1;
+   justify-content:flex-end;
+   margin-right: 100px;
+}
+
+.fa {
+font-size: 20px;
+cursor: pointer;
+margin: 15px;        
+ }   
+
+ .fa:hover{
+    color: #ff5733;
+ }
+
+.container {
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    background-color: white;
+    margin: 0;
+
+}
+
+.mouse{
+    display: none;
+}
+.logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+h2 {
+    font-size: 2em;
+    margin: 0 0 10px;
+    color: #000;
+}
+p {
+    font-size: 1.2em;
+    margin: 0 0 20px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff5733;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #c44533;
+}
+.game-container {
+    margin-top: 20px;
+    /* padding-bottom: 400px; */
+    width: 100%;
+    /* background-image: url(scoops/2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%; */
+}
+
+#gameCanvas {
+    border: 2px solid #d24715;
+    background-color: #f9cc2a4c;
+    border-radius: 30px;
+    margin: 50px auto;
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff5733;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 50px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #c44533;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background-color: #ece5e3;
+    margin: 0;
+}
+.row{
+    display: flex;
+    flex: 2;
+
+}
+.col{
+    flex: 1;
+}
+
+.col ul li{
+    line-height: 35px;
+    list-style-type: none;
+}
+
+.col ul li a{
+    text-decoration: none;
+    color: black;
+    
+    
+}
+
+.col ul li a:hover{
+    color: #ff5733;
+}
+
+#grey{
+    background-color:#c2c1c1 ;
+    padding: 90px;
+}
+
+form {
+margin: 20px 0;
+color: #fff4f1;
+}
+
+h3{
+    color: #fff;
+}
+
+form{
+    margin-bottom: 100px;
+}
+
+form label {
+display: block;
+font-size: 1.1em;
+margin-bottom: 5px;
+}
+
+form input[type="email"] {
+font-family: "Tsukimi Rounded", serif;
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: transparent;
+margin-bottom: 10px;
+}   
+
+form button {
+background-color: #ff5733;
+color: white;
+margin: 0;
+}
+
+
+.icon a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+.icon a:hover{
+    color: #ff5733;
+}
+
+#Top{
+    display: block;
+    text-align: right;
+    justify-content:flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+section{
+    background-color: black;
+    color: white;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    padding: 5px 15px;
+}
+
+@media screen and (max-width: 600px) {
+
+    nav{
+        display: none;
+    }
+
+    .menu{
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        background-color: #fff4f1;
+        
+    }
+
+    #links{
+        background-color: #ffc7b7;
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: 0.5s;
+        overflow-x: hidden;
+    }
+
+   .menu-icon{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input{
+        margin-left: 13px;
+        color: black;
+        border: 0;
+        width: 90%;
+        background-color: #ffc7b7;
+        font-family: "Tsukimi Rounded", serif;
+        font-size: 18px;
+    }
+
+    .menu-icon .fa{
+        margin: 20px;
+    }
+
+    #links a{
+        color: black;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        text-align: left;
+        border-width: #000 1px;
+    }
+
+    #links a.icon{
+        background-color: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .container .small{
+        width: 70%;
+    }
+
+    .elephant{
+        display: none;
+    }
+
+    .mouse{
+        display: block;
+    }
+
+    .footer{
+        display: block;
+        margin: 0;
+    }
+
+    .row{
+        display: block;
+    }
+
+    form input{
+        color: black;
+        border: 0;
+        width: 90%;
+        background-color: #ffffff;
+        font-family: "Tsukimi Rounded", serif;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    nav{
+        display: none;
+    }
+
+    .menu{
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        background-color: #fff4f1;
+        
+    }
+
+    #links{
+        background-color: #ffc7b7;
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: 0.5s;
+        overflow-x: hidden;
+    }
+
+   .menu-icon{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input{
+        margin-left: 13px;
+        color: black;
+        border: 0;
+        width: 90%;
+        background-color: #ffc7b7;
+        font-family: "Tsukimi Rounded", serif;
+        font-size: 18px;
+    }
+
+    .menu-icon .fa{
+        margin: 20px;
+    }
+
+    #links a{
+        color: black;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        text-align: left;
+        border-width: #000 1px;
+    }
+
+    #links a.icon{
+        background-color: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .container .small{
+        width: 70%;
+    }
+
+    .elephant{
+        display: none;
+    }
+
+    .mouse{
+        display: block;
+    }
+
+    form input{
+        color: black;
+        border: 0;
+        width: 90%;
+        background-color: #ffffff;
+        font-family: "Tsukimi Rounded", serif;
+        font-size: 18px;
+    }
+
+    .footer{
+        display: block;
+        margin: 0;
+    }
+}

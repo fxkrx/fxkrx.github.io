@@ -1,50 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-	<title>FIKRI</title>
-    <style>
-        #main-bg{
-            background-color: antiquewhite;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Style+Script&family=Tsukimi+Rounded&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Events</a></li>
+        </ul>
+        
+        <div class="logo">
+            <a href="https://birdsofparadise.sg/"><img src="bop.png" alt="" width="100px"></a>
+        </div>
+
+        <div class="icons">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+        </div>
+    </nav>
+    
+    <div class="menu">
+        <i class="fa fa-bars" onclick="openNav()" ></i>
+        <a href="https://birdsofparadise.sg/"><img src="bop.png" alt="" width="100px"></a>
+        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+    
+
+        <div id="links">
+            <div class="menu-icon">
+                
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <a href="javascript:void(0)" onclick="closeNav()"><i class="fa fa-minus"  ></i></a>
+            </div>
+            <hr>
+            <div class="search">
+                
+                <input type="text" placeholder="Search...">
+               <i class="fa fa-search" aria-hidden="true"></i> 
+            </div>
+            
+            <hr>
+            <a href="#">Shop</a>
+            <hr>
+            <a href="#">About Us</a>
+            <hr>
+            <a href="#">Community</a>
+            <hr>
+            <a href="#">Events</a>
+            <hr>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <img src="405.png" alt="" class="small" width="500px">
+        <h2>Oops! Looks Like the page you're looking for has melted.</h2>
+        <img src="melt.png" alt="" width="100%">
+        <div class="game-container">
+            <p class="elephant">While you're here, <br> Help catch the ice creams into the bowl! <br> Use the left and right arrow keys to move.</p>
+            <p class="mouse">While you're here, <br> Help catch the ice creams into the bowl! <br> Swipe the bowl left and right to move.</p>
+            <canvas id="gameCanvas" width="300" height="400"></canvas>
+            <button onclick="startGame()">Start Game</button>
+            <img src="scoops/2.png" alt="" width="100%">
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="row">
+            <div class="col">
+                <ul>
+                 <li><a href="#">About Us</a></li>
+                 <li><a href="#">Our Boutiques</a></li>
+                  <li><a href="#">Community</a></li>
+                  <li><a href="#">Sustainability</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+
+                <ul>
+                   <li><a href="#">Catering</a></li>
+                  <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <ul>
+                     <li><a href="#">Need Help?</a></li>
+                     <li><a href="#">FAQ</a></li>
+                     <li><a href="#">Shopping Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Join Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="col" id="grey">
+            <h4>Get the latest scoop on new flavours, promotions and updates</h4>
+            <form>
+                <input type="email" id="email" placeholder="enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+            <hr>
+            <div class="icon">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+            <a href="#" id="Top">Back to Top<i class="fa fa-arrow-up"></i></a>
+        </div>
+    </div>
+
+    <section>
+        <h3>&copy; BIRDS OF PARADISE GELATO BOUTIQUE 2025</B></h3>
+    </section>
+
+    <script>
+        let canvas = document.getElementById('gameCanvas');
+        let ctx = canvas.getContext('2d');
+
+        let bowlImage = new Image();
+        bowlImage.src = 'bowl.png'; // Replace with the actual path to your bowl image
+        let iceCreamImage = new Image();
+        iceCreamImage.src = 'scoops/6.png'; // Replace with the actual path to your ice cream image
+
+        let player = { x: 140, y: 350, width: 50, height: 50 };
+        let cones = [];
+        let gameInterval;
+        let score = 0;
+
+        function drawPlayer() {
+            ctx.fillStyle = '#ff5733';
+            // ctx.fillRect(player.x, player.y, player.width, player.height);
+            ctx.drawImage(bowlImage, player.x, player.y, player.width, player.height);
         }
 
-        p{
-            font-family: Arial, Helvetica, sans-serif;
+        function drawCones() {
+            ctx.fillStyle = '#fcaf28';
+
+            // ctx.drawImage(iceCreamImage, cone.x, cone.y, 30, 40);
+            cones.forEach(cone => {
+                ctx.beginPath();
+                ctx.arc(cone.x, cone.y, 10, 0, Math.PI * 2);
+                ctx.fill();
+            });
         }
 
-        .mee-siam-red{
-            background-color: firebrick;
-            color: azure;
+        function updateCones() {
+            for (let i = cones.length - 1; i >= 0; i--) {
+                cones[i].y += 2;
+                if (cones[i].y > canvas.height) {
+                    cones.splice(i, 1);
+                } else if (
+                    cones[i].x > player.x &&
+                    cones[i].x < player.x + player.width &&
+                    cones[i].y > player.y &&
+                    cones[i].y < player.y + player.height
+                ) {
+                    cones.splice(i, 1);
+                    score++;
+                }
+            }
         }
 
-        h1{
-            font-family: 'Times New Roman', Times, serif;
-            color: firebrick;
+        function drawScore() {
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('Score: ' + score, 10, 20);
+            
         }
 
-        h3{
-            font-family: Arial, Helvetica, sans-serif;
+        function spawnCone() {
+            let x = Math.random() * (canvas.width - 20) + 10;
+            cones.push({ x: x, y: 0 });
         }
-    </style>
-	</head>
 
-	<body id="main-bg">
-	<h1>Fikri</h1>
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawCones();
+            updateCones();
+            drawScore();
+        }
 
-    <h3>My Page</h3>
+        function startGame() {
+            cones = [];
+            score = 0;
+            clearInterval(gameInterval);
+            gameInterval = setInterval(() => {
+                gameLoop();
+                if (Math.random() < 0.05) {
+                    spawnCone();
+                }
+            }, 30);
+        }
 
-    <p> Hi, <b>I’m Fikri Harun!</b> I’m Fikri Harun! a creative professional transitioning from the culinary arts to the world of graphic design. My journey began as a pastry chef, where I spent over five years perfecting the art of presentation and storytelling through food. This passion for aesthetics eventually led me to explore visual arts beyond the plate, sparking my interest in design and photography. Along the way, I developed skills in photography and photo/video editing, capturing moments and enhancing visuals to tell compelling stories. Currently, I’m expanding my expertise by pursuing a diploma in graphic design, where I’m learning the fundamentals of branding, layout design, and digital media. I’m a firm believer in lifelong learning, and I approach every project with curiosity and enthusiasm. While I’m still growing as a designer, my unique background and ability to adapt creatively give me a fresh perspective. I’m eager to collaborate, learn, and create impactful designs that connect with people. When I’m not studying or working on projects, you’ll find me with a camera in hand, exploring inspiration through photography or experimenting with new dessert recipes. Let’s create something extraordinary together!</p>
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' && player.x > 0) {
+                player.x -= 10;
+            } else if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) {
+                player.x += 10;
+            }
+        });
 
-    <p class="mee-siam-red"><u>Donec pharetra hendrerit mi eget tristique.</u> Donec ornare aliquam arcu, ut sollicitudin dui gravida id. Donec congue diam gravida ex rutrum bibendum at ac ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sit amet magna ut odio aliquet mattis. Cras a lectus semper, ultricies dolor nec, tempus velit. In hac habitasse platea dictumst. <br> Duis pharetra mi nec mauris posuere condimentum. Aenean sit amet auctor nibh. Sed elementum tortor quis convallis convallis. Praesent fringilla tellus justo, lacinia aliquam sapien ornare convallis. Nam porttitor fermentum arcu sed molestie. Praesent pulvinar nibh velit, non ultricies justo fermentum a. Pellentesque efficitur, metus a ornare volutpat, eros sapien mollis magna, at rhoncus mauris augue quis lacus. Integer vestibulum, lacus vel cursus luctus, enim orci euismod felis, eu efficitur diam arcu a turpis.</p>
+        function openNav() {
+        document.getElementById("links").style.width = "250px";
+        document.getElementById("menu").style.marginLeft = "250px";
+        }
 
-    <p>Nam a scelerisque ipsum. Maecenas congue commodo convallis. Donec porttitor diam quis lorem dapibus, a sagittis metus sodales. Phasellus molestie mi et vestibulum tristique. Donec gravida posuere quam vitae sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur magna orci, imperdiet sit amet pretium in, eleifend rutrum purus. Cras sed euismod nibh. Morbi at enim non metus aliquam pulvinar in quis augue. Integer semper, metus eget congue porttitor, urna erat accumsan tellus, et tempor libero leo eu lacus. Praesent imperdiet mauris sed dui sagittis eleifend. Morbi ut malesuada dolor. Morbi imperdiet est nunc, nec convallis velit rhoncus eu.</p>
-
-    <img src="cat.png" alt="a picture of a cat" width="300">
-
-    <a href="https://www.ifema.es/marvel-universe-of-super-heroes" target="_blank"><img src="https://www.ifema.es/img/l/dibujo-del-cartel-marvel-universe-heroes/marvel-expo-cartel.webp" alt="" width="300"></a>
-
-    <img src="https://www.wvnstv.com/wp-content/uploads/sites/76/2023/02/image0-1.gif" alt="" width="300">
-
-    <p>Check out this cool <a href="https://www.w3schools.com/html" target="_blank">site</a> about HTML and <a href="https://csszengarden.com/" target="_blank">this</a> one about CSS</p>
-
-	</body>
+        function closeNav() {
+        document.getElementById("links").style.width = "0";
+        document.getElementById("menu").style.marginLeft= "0";
+        }
+    </script>
+</body>
 </html>
