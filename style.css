@@ -3,9 +3,8 @@ body {
     font-family: "Tsukimi Rounded", serif;
     font-weight: 400;
     font-style: normal;
-    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    background-color: #fff;
     color: #333;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -114,12 +113,14 @@ button:hover {
 }
 .game-container {
     margin-top: 20px;
-    /* padding-bottom: 400px; */
+    margin-bottom: 100px;
+    padding-bottom: 400px;
     width: 100%;
-    /* background-image: url(scoops/2.png);
+    background-image: url(scoops/2.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%; */
+    background-size: 100%;
+    
 }
 
 #gameCanvas {
@@ -142,6 +143,20 @@ button {
 }
 button:hover {
     background-color: #c44533;
+}
+
+
+.about-us{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    width: 80%; 
+    margin: 15px auto;
+}
+
+.about-us .content{
+    margin: 50px;
 }
 
 .footer{
