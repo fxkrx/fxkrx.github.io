@@ -116,7 +116,7 @@ button:hover {
     margin-bottom: 100px;
     padding-bottom: 400px;
     width: 100%;
-    background-image: url(scoops/2.png);
+    background-image: url(2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -337,13 +337,33 @@ section{
         display: none;
     }
 
+    .game-container{
+        padding-bottom: 150px;
+        margin-bottom: 50px;
+        background-position: bottom;
+    }
+
     .mouse{
         display: block;
+    }
+
+    .about-us{
+        display: block;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .about-us img{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
     }
 
     .footer{
         display: block;
         margin: 0;
+        padding-top: 20px;
     }
 
     .row{
@@ -432,12 +452,31 @@ section{
         width: 70%;
     }
 
+    .game-container{
+        padding-bottom: 250px;
+        margin-bottom: 100px;
+        background-position: bottom;
+    }
+
     .elephant{
         display: none;
     }
 
     .mouse{
         display: block;
+    }
+
+    .about-us{
+        display: block;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .about-us img{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
     }
 
     form input{
@@ -447,6 +486,11 @@ section{
         background-color: #ffffff;
         font-family: "Tsukimi Rounded", serif;
         font-size: 18px;
+    }
+
+    .about-us{
+        display: block;
+
     }
 
     .footer{
