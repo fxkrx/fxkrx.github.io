@@ -301,6 +301,10 @@ section{
         top: 0;
     }
 
+    h4{
+        width: 80%;
+    }
+
     .container .small{
         width: 70%;
     }
@@ -406,6 +410,10 @@ section{
 
     .container .small{
         width: 70%;
+    }
+
+    h4{
+        width: 80%;
     }
 
     .elephant{
