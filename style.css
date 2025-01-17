@@ -305,6 +305,9 @@ section{
         width: 70%;
     }
 
+    .game-container{
+        width: 100%;
+
     .elephant{
         display: none;
     }
